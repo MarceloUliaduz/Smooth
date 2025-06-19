@@ -3,7 +3,6 @@ package Vectoriels;
 import java.awt.geom.Point2D;
 
 import static Outils.Geometrie.pente;
-import static Outils.HermiteSpline.segmentFunction;
 
 public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
     public FiniteDifferenceSpline() {
@@ -12,6 +11,7 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
 
     /**
      * Determiner la tangente d'un point au milieu de deux autres.
+     *
      * @param p1 point 1
      * @param p2 point 2 (celui dont on détermine la tangente)
      * @param p3 point 3
@@ -27,7 +27,7 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
      *
      * <p>La fonction crée automatiquement le segment associé</p>
      *
-     * @param nouveauPoint    point à ajouter
+     * @param nouveauPoint point à ajouter
      */
     public void ajouterPointDirecteur(Point2D nouveauPoint) {
         int nombrePoints = pointsDirecteurs.size();
