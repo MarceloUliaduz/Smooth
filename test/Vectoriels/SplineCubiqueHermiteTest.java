@@ -1,5 +1,5 @@
-import Vectoriels.CourbeVectorielle2D;
-import Vectoriels.SplineCubiqueHermite;
+package Vectoriels;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

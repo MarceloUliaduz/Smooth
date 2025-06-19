@@ -9,7 +9,6 @@ import java.util.ArrayList;
  * @author Camille
  */
 public abstract class CourbeVectorielle2D extends ObjetVectoriel2D implements Courbe2D {
-    protected int nombreSegments = 0;
 
     public ArrayList<Point2D> getPointsInterpolation(int nombrePoints) {
         assert function != null;
@@ -18,7 +17,7 @@ public abstract class CourbeVectorielle2D extends ObjetVectoriel2D implements Co
         int diviseur = nombrePoints - 1;
 
         for (double i = 0; i < nombrePoints; i++) {
-            points.add(function.apply((i * nombreSegments) / diviseur));
+            points.add(function.apply(i / diviseur));
         }
 
         return points;
