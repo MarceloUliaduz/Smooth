@@ -29,7 +29,7 @@ public class Tracer extends Frame {
 
         addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
                 Point2D dernierPoint = new Point2D.Double(e.getX(), e.getY());
                 long debut = System.nanoTime();
                 courbe.ajouterPointDirecteur(dernierPoint);
@@ -64,7 +64,6 @@ public class Tracer extends Frame {
         // Récupérer les points
         if (!courbe.getPointsDirecteurs().isEmpty()) {
             points = courbe.getPointsInterpolation(100);
-
 
             // Dessiner la courbe
             Color couleur = Color.red;
