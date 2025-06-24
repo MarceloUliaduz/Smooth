@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Timer;
 
 import Vectoriels.*;
 
@@ -30,8 +31,15 @@ public class Tracer extends Frame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 Point2D dernierPoint = new Point2D.Double(e.getX(), e.getY());
+                long debut = System.nanoTime();
                 courbe.ajouterPointDirecteur(dernierPoint);
+                long t1 = System.nanoTime();
+
+                System.out.println( "ajout point " + (double) (t1 - debut) / 1000000);
+                debut = System.nanoTime();
                 repaint();
+                long t2 = System.nanoTime();
+                System.out.println("dessin " + (double) (t2 - debut) / 1000000);
             }
         });
 
