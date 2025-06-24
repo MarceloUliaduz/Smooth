@@ -18,9 +18,30 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
      * @return la tangente
      */
     private static double determinerTangente(Point2D p1, Point2D p2, Point2D p3) {
-        return 0.5d * ((p3.getY() - p2.getY()) / (p3.getX() - p2.getX())
-                + (p2.getX() - p1.getX()) / (p2.getY() - p1.getX()));
+
+        double resultat = 0.5d * Math.abs(pente(p2, p3) + pente(p1, p2));
+
+        /*if (Math.signum(p2.getX() - p1.getX()) != Math.signum(p3.getX() - p2.getX())) {
+
+
+            resultat = -1/resultat;
+        }*/
+
+        return resultat;
     }
+
+    private static Vecteur2D determinerVecteurTangent(Point2D p1, Point2D p2, Point2D p3) {
+        double vx1 = p2.getX() - p1.getX(),
+                vx2 = p3.getX() - p2.getX(),
+                vy1 = p2.getY() - p1.getY(),
+                vy2 = p3.getY() - p2.getY();
+
+        Vecteur2D vecteurTangent = new Vecteur2D(vx1 + vx2, vy1 + vy2);
+        vecteurTangent.normaliser(Vecteur2D::norme1);
+        System.out.println(vecteurTangent);
+        return vecteurTangent;
+    }
+
 
     /**
      * Ajouter un point directeur en fin de courbe pour l'allonger.
@@ -34,28 +55,29 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
 
         // S'il n'y a qu'un point, on lui donne une tangente nulle
         double pente = 0;
+        Vecteur2D vecteurTangent = new Vecteur2D(0, 0);
 
         if (nombrePoints > 0) {
 
             pente = pente(pointsDirecteurs.getLast(), nouveauPoint);
+            vecteurTangent = new Vecteur2D(pointsDirecteurs.getLast(), nouveauPoint);
+            vecteurTangent.normaliser(Vecteur2D::norme1);
             if (nombrePoints == 1) {
                 // S'il y en a deux leur tangente est la pente entre les deux points
-                tangentes.set(0, pente);
+                dirTangentes.set(0, vecteurTangent);
 
             } else {
-                tangentes.set(nombrePoints - 1, determinerTangente(
+                dirTangentes.set(nombrePoints - 1, determinerVecteurTangent(
                         pointsDirecteurs.get(nombrePoints - 2),
                         pointsDirecteurs.getLast(),
                         nouveauPoint
                 ));
-
             }
-
-            ajouterSegment(pointsDirecteurs.getLast(), tangentes.getLast(),
-                    nouveauPoint, pente);
         }
 
-        tangentes.add(pente);
+        dirTangentes.add(vecteurTangent);
         pointsDirecteurs.add(nouveauPoint);
+
+        mettreAJour2DerniersSegments();
     }
 }
