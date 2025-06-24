@@ -38,7 +38,6 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
 
         Vecteur2D vecteurTangent = new Vecteur2D(vx1 + vx2, vy1 + vy2);
         vecteurTangent.normaliser(Vecteur2D::norme1);
-        System.out.println(vecteurTangent);
         return vecteurTangent;
     }
 

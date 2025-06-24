@@ -1,6 +1,8 @@
 import Vectoriels.*;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.Point2D;
@@ -25,9 +27,6 @@ public class Exemple1 extends Frame {
     }
 
     public void paint(Graphics g) {
-        
-
-
         CourbeVectorielle2DInterpolatrice courbe = new FiniteDifferenceSpline();
         courbe.ajouterPointDirecteur(new Point2D.Double(100, 100));
         courbe.ajouterPointDirecteur(new Point2D.Double(200, 200));
