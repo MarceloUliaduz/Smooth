@@ -24,7 +24,7 @@ public abstract class CourbeVectorielle2DInterpolatrice extends CourbeVectoriell
     protected ArrayList<Function<Double, Point2D>> fonctionsParSegments;
 
     /**
-     * Liste des tangentes aux points qui définisssent la courbe.
+     * Liste des vecteurs directeurs aux points qui définisssent la courbe.
      */
     protected ArrayList<Vecteur2D> dirTangentes;
 

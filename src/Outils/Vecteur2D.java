@@ -51,7 +51,7 @@ public class Vecteur2D {
     /**
      * Créer un vecteur normé de norme indiquée à partir d'une tangente.
      *
-     * @param tangente tangente
+     * @param tangente      tangente
      * @param fonctionNorme norme
      */
     public Vecteur2D(double tangente, BiFunction<Double, Double, Double> fonctionNorme) {

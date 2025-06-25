@@ -4,32 +4,9 @@ import Outils.Vecteur2D;
 
 import java.awt.geom.Point2D;
 
-import static Outils.Geometrie.pente;
-
 public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
     public FiniteDifferenceSpline() {
         super();
-    }
-
-    /**
-     * Determiner la tangente d'un point au milieu de deux autres.
-     *
-     * @param p1 point 1
-     * @param p2 point 2 (celui dont on détermine la tangente)
-     * @param p3 point 3
-     * @return la tangente
-     */
-    private static double determinerTangente(Point2D p1, Point2D p2, Point2D p3) {
-
-        double resultat = 0.5d * Math.abs(pente(p2, p3) + pente(p1, p2));
-
-        /*if (Math.signum(p2.getX() - p1.getX()) != Math.signum(p3.getX() - p2.getX())) {
-
-
-            resultat = -1/resultat;
-        }*/
-
-        return resultat;
     }
 
     private static Vecteur2D determinerVecteurTangent(Point2D p1, Point2D p2, Point2D p3) {
@@ -42,7 +19,6 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
         vecteurTangent.normaliser(Vecteur2D::norme1);
         return vecteurTangent;
     }
-
 
     /**
      * Ajouter un point directeur en fin de courbe pour l'allonger.
@@ -60,7 +36,6 @@ public class FiniteDifferenceSpline extends CourbeVectorielle2DInterpolatrice {
 
         if (nombrePoints > 0) {
 
-            pente = pente(pointsDirecteurs.getLast(), nouveauPoint);
             vecteurTangent = new Vecteur2D(pointsDirecteurs.getLast(), nouveauPoint);
             vecteurTangent.normaliser(Vecteur2D::norme1);
             if (nombrePoints == 1) {

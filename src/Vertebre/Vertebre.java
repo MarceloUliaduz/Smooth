@@ -3,7 +3,6 @@ package Vertebre;
 import Outils.Vecteur2D;
 
 import java.awt.geom.Point2D;
-import java.util.Vector;
 
 /**
  * Classe d'une vertebre
@@ -36,28 +35,28 @@ public class Vertebre {
         return new Point2D.Double(position.getX(), position.getY());
     }
 
-    public double getLargeur() {
-        return largeur;
-    }
-
-    public Vecteur2D getDirection() {
-        return new Vecteur2D(direction);
-    }
-
     public void setPosition(Point2D position) {
         this.position.setLocation(position);
     }
 
-    public void setPosition(double x, double y) {
-        position.setLocation(x, y);
+    public double getLargeur() {
+        return largeur;
     }
 
     public void setLargeur(double largeur) {
         this.largeur = largeur;
     }
 
+    public Vecteur2D getDirection() {
+        return new Vecteur2D(direction);
+    }
+
     public void setDirection(Vecteur2D direction) {
         this.direction = new Vecteur2D(direction);
+    }
+
+    public void setPosition(double x, double y) {
+        position.setLocation(x, y);
     }
 
     public void translater(double dx, double dy) {
@@ -69,6 +68,6 @@ public class Vertebre {
     }
 
     public Vecteur2D getOrthogonal() {
-        return Vecteur2D.rotation(direction, Math.PI/2);
+        return Vecteur2D.rotation(direction, Math.PI / 2);
     }
 }
