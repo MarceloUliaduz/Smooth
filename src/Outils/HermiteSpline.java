@@ -1,7 +1,5 @@
 package Outils;
 
-import Vectoriels.Vecteur2D;
-
 import java.awt.geom.Point2D;
 import java.util.function.Function;
 

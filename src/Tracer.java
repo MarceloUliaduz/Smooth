@@ -46,7 +46,7 @@ public class Tracer extends Frame {
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_R) {
+                if (e.getKeyCode() == KeyEvent.VK_R || e.getKeyCode() == KeyEvent.VK_F5) {
                     courbe = new FiniteDifferenceSpline();
                     repaint();
                 }
@@ -63,7 +63,7 @@ public class Tracer extends Frame {
 
         // Récupérer les points
         if (!courbe.getPointsDirecteurs().isEmpty()) {
-            points = courbe.getPointsInterpolation(100);
+            points = courbe.getPointsInterpolation(500);
 
             // Dessiner la courbe
             Color couleur = Color.red;

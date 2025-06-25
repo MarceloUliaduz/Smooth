@@ -1,5 +1,7 @@
 package Vectoriels;
 
+import Outils.Vecteur2D;
+
 import java.awt.geom.Point2D;
 
 import static Outils.Geometrie.pente;
