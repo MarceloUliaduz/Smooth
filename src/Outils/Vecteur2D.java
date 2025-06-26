@@ -174,6 +174,10 @@ public class Vecteur2D {
         y = y * Math.cos(raddeg) + xContainer * Math.sin(raddeg);
     }
 
+    public boolean estNul() {
+        return x == 0 && y == 0;
+    }
+
     @Override
     public String toString() {
         return "[" + x + ", " + y + "]";

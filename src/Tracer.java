@@ -6,6 +6,11 @@ import java.util.Timer;
 
 import Vectoriels.*;
 
+/**
+ * Programme qui permet de dessiner une courbe en cliquant sur une fenêtre.
+ *
+ * <p>Appuyer sur R ou F5 efface la courbe</p>
+ */
 public class Tracer extends Frame {
     private final int width = 1000, height = 1000;
     int numPoints = 500;
