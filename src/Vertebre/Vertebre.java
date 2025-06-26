@@ -72,8 +72,8 @@ public class Vertebre {
         position.setLocation(position.getX() + dx, position.getY() + dy);
     }
 
-    public void tourner(double randangle) {
-        direction.tourner(randangle);
+    public void tourner(double radangle) {
+        direction.tourner(radangle);
     }
 
     public Vecteur2D getOrthogonal() {
